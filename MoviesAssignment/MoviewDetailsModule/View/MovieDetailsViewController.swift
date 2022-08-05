@@ -41,7 +41,6 @@ class MovieDetailsViewController: UIViewController, UIScrollViewDelegate {
         presenter.downloadPoster { [self] (image) in
             ivPoster.image = image
         }
-        //scrollView.resizeScrollViewContentSize()
     }
     
     @IBAction func btnLikePressed(sender: UIButton) {
@@ -61,16 +60,5 @@ extension MovieDetailsViewController: MovieDetailsPresenterDelegate {
     
     func didDislikeMediaItem() {
         btnLike.setTitle(presenter.likeButtonTitle, for: .normal)
-    }
-}
-
-extension UIScrollView {
-
-    func resizeScrollViewContentSize() {
-        var contentRect = CGRect.zero
-        for view in self.subviews {
-            contentRect = contentRect.union(view.frame)
-        }
-        self.contentSize = contentRect.size
     }
 }
